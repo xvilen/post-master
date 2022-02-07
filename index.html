@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet" href="prism.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <title>post master</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar w/ text</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">about</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">contact us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="my-3">post master</h1>
+    </div>
+    <div class="container">
+        <!-- url box -->
+        <div class="form-group row">
+            <label for="url" class="col-sm-2 col-form-label">URL</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="urlfield" placeholder=" ENTER URL" />
+            </div>
+        </div>
+
+        <!-- request type box -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Request type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requestType" id="get" value="GET" checked />
+                        <label class="form-check-label" for="GET"> GET </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="requestType" id="post" value="POST" />
+                        <label class="form-check-label" for="POST"> POST </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <!-- content typebox -->
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Conetnt type</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contentType" id="json" value="json" checked />
+                        <label class="form-check-label" for="JSON"> JSON </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contentType" id="param" value="param" />
+                        <label class="form-check-label" for="param">
+                            Custom parameter
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- parameter box this will hide on clicking json -->
+
+        <div id="parameterbox">
+            <div class="form-row">
+                <label for="url" class="col-sm-2 col-form-label">Parameter 1</label>
+                <div class="col-md-4">
+                    <input type="txet" class="form-control" id="paramkey1" placeholder="Enter Parameter 1 Key " />
+                </div>
+
+                <div class="col-md-4">
+                    <input type="txet" class="form-control" id="paramvalue1" placeholder="Enter Parameter  1 Value" />
+                </div>
+                <button class="btn btn-primary" id="addparam">+</button>
+            </div>
+            <div id="paramlist"></div>
+        </div>
+
+        <!-- json request box -->
+        <div class="my-3" id="reqjsonbox">
+            <div class="form-group row my-3">
+                <label for="JSON" class="col-sm-2 col-form-label">Enter request json</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="reqjsontext" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- submit button to fetch api -->
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button class="btn btn-primary" id="submit">Submit</button>
+            </div>
+        </div>
+        <div class="my-3" id="rspnsjsonbox">
+            <div class="form-group row">
+                <label for="responsejsonText" class="col-sm-2 col-form-label">Response</label>
+                <div class="col-sm-10">
+                    <!-- <textarea class="form-control" id="rspnsjsontext" rows="3">your response will appear here</textarea> -->
+                    <pre id='responsePre' class="language-javascript"><code id='responsePrism'class="language-javascript">your response will appear here </code></pre>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="index.js"></script>
+        <script src="prism.js"></script>
+</body>
+
+</html>
